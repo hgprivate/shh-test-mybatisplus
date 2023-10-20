@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="60 seconds" debug="true">
+    <!--
+        springboot中默认存在base.xml文件，且包含了default。
+        Spring Boot的日志系统预先定义了一些系统变量：
+        base.xml内容如下：
+            <included>
+                <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+                <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
+                <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+                <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+                <root level="INFO">
+                    <appender-ref ref="CONSOLE" />
+                    <appender-ref ref="FILE" />
+                </root>
+            </included>
+            ${PID}，当前进程ID
+            ${LOG_FILE}，Spring Boot配置文件中logging.file的值
+            ${LOG_PATH}, Spring Boot配置文件中logging.path的值
+        默认包含两个appender，一个是控制台，一个是文件，分别定义在console-appender.xml和file-appender.xml中。
+        同时对于应用的日志级别也可以通过application.properties进行定义：
+            - logging.level.org.springframework.web=DEBUG
+            - logging.level.org.hibernate=ERROR
+    -->
+    <!--<include resource="org/springframework/boot/logging/logback/base.xml"/>-->
+
+
+    <appender name="CP" class="ch.qos.logback.core.ConsoleAppender">
+        <!--
+            此日志appender是为开发使用，只配置最底级别，控制台输出的日志级别是大于或等于此级别的日志信息
+            ThresholdFilter为系统定义的拦截器，例如我们用ThresholdFilter来过滤掉ERROR级别以下的日志不输出到文件中。
+            如果不用记得注释掉，不然你控制台会发现没日志~
+        -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>info</level>
+        </filter>
+        <!--
+            encoder标签：表示对日志进行编码:
+                %d{HH:mm:ss.SSS}：日志输出时间
+                %thread：输出日志的进程名字，这在Web应用以及异步任务处理中很有用
+                %-5level：日志级别，并且使用5个字符靠左对齐
+                %logger{36}：日志输出者的名字
+                %msg：日志消息
+                %n：平台的换行符
+        -->
+        <encoder>
+            <pattern>%boldBlue(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %-5level [%X{traceId},%X{spanId}] %logger{50} - %msg%n</pattern>
+            <!-- 设置字符集 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="WARN">
+        <appender-ref ref="CP"/>
+    </root>
+</configuration>
