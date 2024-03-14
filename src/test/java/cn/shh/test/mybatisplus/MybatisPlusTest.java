@@ -30,9 +30,9 @@ public class MybatisPlusTest {
         user.setEmail("lisi@atguigu.com");
         //INSERT INTO user ( id, name, age, email ) VALUES ( ?, ?, ?, ? )
         int result = userMapper.insert(user);
-        System.out.println("受影响行数：" + result);
+        System.out.println(result > 0 ? "success " + result : "error " + result);
         //1498965861758377985
-        System.out.println("id自动获取：" + user.getId());
+        System.out.println("自动生成的ID：" + user.getId());
     }
 
     /**
@@ -43,7 +43,7 @@ public class MybatisPlusTest {
         //通过id删除用户信息
         //DELETE FROM user WHERE id=?
         int result = userMapper.deleteById(1);
-        System.out.println("受影响行数：" + result);
+        System.out.println(result > 0 ? "success " + result : "error " + result);
     }
 
     /**
@@ -52,18 +52,18 @@ public class MybatisPlusTest {
     @Test
     public void testUpdateById(){
         User user = new User();
-        user.setAge(18);
         user.setId(2L);
+        user.setAge(28);
         //UPDATE user SET name=?, age=? WHERE id=?
         int result = userMapper.updateById(user);
-        System.out.println("受影响行数：" + result);
+        System.out.println(result > 0 ? "success " + result : "error " + result);
     }
 
     @Test
     public void testVersion(){
         User user = userMapper.selectById(1523578458276397058L);
         user.setAge(18);
-        int cout = userMapper.updateById(user);
-        System.out.println("修改了: " + cout);
+        int result = userMapper.updateById(user);
+        System.out.println(result > 0 ? "success " + result : "error " + result);
     }
 }

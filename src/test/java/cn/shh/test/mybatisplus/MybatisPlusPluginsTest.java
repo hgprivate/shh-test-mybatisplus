@@ -107,7 +107,7 @@ public class MybatisPlusPluginsTest {
         System.out.println("小王修改的结果：" + result2);
 
         if(result2 == 0){
-        //失败重试，重新获取version并更新
+            //失败重试，重新获取version并更新
             p2 = productMapper.selectById(1L);
             p2.setPrice(p2.getPrice() - 30);
             result2 = productMapper.updateById(p2);

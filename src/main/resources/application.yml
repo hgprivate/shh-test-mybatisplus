@@ -10,6 +10,8 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
+    banner: true
+    enable-sql-runner: false
     db-config:
       table-prefix: sys_
       id-type: auto
