@@ -2,8 +2,10 @@ package cn.shh.test.mybatisplus;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
+import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
+import java.sql.Types;
 import java.util.Collections;
 
 /**
@@ -16,7 +18,7 @@ public class FastAutoGeneratorTest {
                         .globalConfig(builder -> {
                             builder.author("haoge") // 设置作者
                                     //.enableSwagger() // 开启 swagger 模式
-                                    .fileOverride() // 覆盖已生成文件
+                                    //.fileOverride() // 覆盖已生成文件
                                     .outputDir("D://tmp//mybatis_plus"); // 指定输出目录
                         }).packageConfig(builder -> {
                             builder.parent("cn.shh.test") // 设置父包名

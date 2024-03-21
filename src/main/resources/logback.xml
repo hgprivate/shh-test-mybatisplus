@@ -46,7 +46,6 @@
         -->
         <encoder>
             <pattern>%boldBlue(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %-5level [%X{traceId},%X{spanId}] %logger{50} - %msg%n</pattern>
-            <!-- 设置字符集 -->
             <charset>UTF-8</charset>
         </encoder>
     </appender>
