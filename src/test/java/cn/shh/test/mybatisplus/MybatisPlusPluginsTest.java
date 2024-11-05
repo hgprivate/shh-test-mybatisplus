@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 /**
- * 插件功能测试
+ * mybatis plus中插件的使用
  */
 @SpringBootTest
 public class MybatisPlusPluginsTest {

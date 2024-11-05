@@ -12,16 +12,19 @@ import java.time.LocalDateTime;
 public class User {
     /**
      * 注解 @TableId
-     *
+     * <p>
      * 作用：将属性对应的字段设为主键
+     * </p>
+     * <p>
      * 属性值：
-     *      - value：表和类中字段不一致时，通过value指定表中的字段名。
-     *      - type：
-     *          - AUTO：自动增长（数据库配置了该字段为自增长，否则无效）
-     *          - NONE：自己来设置
-     *          - INPUT：自己来设置
-     *          - ASSIGN_ID：雪花算法
-     *          - ASSIGN_UUID：字符串类型（UUID.tostring().replace("-","")）
+     *   - value：表和类中字段不一致时，通过value指定表中的字段名。
+     *   - type：
+     *     - AUTO：自动增长（数据库配置该字段自增长，否则无效）
+     *     - NONE：自己来设置
+     *     - INPUT：自己来设置
+     *     - ASSIGN_ID：雪花算法
+     *     - ASSIGN_UUID：字符串类型（UUID.tostring().replace("-","")）
+     * </p>
      */
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;

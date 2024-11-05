@@ -12,9 +12,10 @@
         <maven.compiler.target>8</maven.compiler.target>
         <spring-boot-version>2.7.18</spring-boot-version>
         <mysql.version>8.3.0</mysql.version>
-        <mybatis-plus.version>3.5.5</mybatis-plus.version>
-        <freemarker.version>2.3.32</freemarker.version>
-        <lombok.version>1.18.32</lombok.version>
+        <mybatis-plus.version>3.5.9</mybatis-plus.version>
+        <freemarker.version>2.3.33</freemarker.version>
+        <lombok.version>1.18.34</lombok.version>
+        <hutool.version>5.8.32</hutool.version>
     </properties>
 
     <dependencies>
@@ -63,6 +64,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
     </dependencies>
 

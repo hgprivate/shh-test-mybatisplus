@@ -15,6 +15,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * mybatis plus中包装器wrapper的使用
+ */
 @SpringBootTest
 public class MybatisPlusWrapperTest {
     @Autowired

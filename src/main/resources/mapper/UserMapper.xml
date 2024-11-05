@@ -10,7 +10,7 @@
     <!--IPage<User> selectPageVo(Page<User> page, Integer age);-->
     <select id="selectByAge" resultType="cn.shh.test.mybatisplus.pojo.User">
         SELECT <include refid="BaseColumns"></include>
-        FROM sys_user
+        FROM mp_user
         WHERE age > #{age}
     </select>
 

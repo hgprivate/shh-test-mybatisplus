@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <configuration scan="true" scanPeriod="60 seconds" debug="true">
     <!--
         springboot中默认存在base.xml文件，且包含了default。
